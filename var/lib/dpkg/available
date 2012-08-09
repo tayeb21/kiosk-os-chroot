@@ -174,17 +174,17 @@ Description: X11 Display Manager Control Protocol library
 Package: libgl1-mesa-dri
 Priority: optional
 Section: libs
-Installed-Size: 45088
+Installed-Size: 88943
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: mesa
-Version: 7.10.3-4~bpo60+1
-Replaces: xlibmesa-dri (<< 1:7.0.0)
-Provides: libgl1-mesa-dri-no-multiarch
-Depends: libc6 (>= 2.3.6-6~), libdrm-intel1 (>= 2.4.23-3~), libdrm-radeon1 (>= 2.4.17), libdrm2 (>= 2.4.3), libexpat1 (>= 1.95.8), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.1.1)
+Version: 8.0.4-2
+Replaces: libgl1-mesa-dri-experimental (<< 7.11.1), xlibmesa-dri (<< 1:7.0.0)
+Depends: libc6 (>= 2.3.6-6~), libdrm-intel1 (>= 2.4.27), libdrm-nouveau1a (>= 2.4.23), libdrm-radeon1 (>= 2.4.17), libdrm2 (>= 2.4.3), libexpat1 (>= 2.0.1), libffi5 (>= 3.0.4), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.6)
 Suggests: libglide3
+Breaks: libgl1-mesa-dri-experimental (<< 7.11.1), libgl1-mesa-glx (<< 7.10.2-4), libgl1-mesa-glx-no-multiarch, xserver-xorg-core (<< 2:1.10.2-2), xserver-xorg-core-no-multiarch
 Conflicts: xlibmesa-dri (<< 1:7.0.0)
-Size: 15681884
+Size: 22524656
 Description: free implementation of the OpenGL API -- DRI modules
  This version of Mesa provides GLX and DRI capabilities: it is capable of
  both direct and indirect rendering.  For direct rendering, it can use DRI
@@ -197,6 +197,7 @@ Description: free implementation of the OpenGL API -- DRI modules
  libgl1-mesa-swx11 package.
  .
  The tdfx DRI module needs libglide3 to enable direct rendering.
+Multi-Arch: same
 Homepage: http://mesa3d.sourceforge.net/
 
 Package: coreutils
@@ -5759,6 +5760,34 @@ Description: X.Org X server -- tdfx display driver
  .
  This package is built from the X.org xf86-video-tdfx driver module.
 
+Package: libxcb-glx0
+Priority: optional
+Section: libs
+Installed-Size: 156
+Maintainer: XCB Developers <xcb@lists.freedesktop.org>
+Architecture: i386
+Source: libxcb
+Version: 1.8.1-1
+Depends: libc6 (>= 2.1.3), libxcb1
+Pre-Depends: multiarch-support
+Size: 34106
+Description: X C Binding, glx extension
+ This package contains the library files needed to run software using
+ libxcb-glx, the glx extension for the X C Binding.
+ .
+ The XCB library provides an interface to the X Window System protocol,
+ designed to replace the Xlib interface.  XCB provides several advantages over
+ Xlib:
+ .
+  * Size: small library and lower memory footprint
+  * Latency hiding: batch several requests and wait for the replies later
+  * Direct protocol access: one-to-one mapping between interface and protocol
+  * Thread support: access XCB from multiple threads, with no explicit locking
+  * Easy creation of new extensions: automatically generates interface from
+    machine-parsable protocol descriptions
+Multi-Arch: same
+Homepage: http://xcb.freedesktop.org
+
 Package: iceweasel-l10n-bn-bd
 Priority: optional
 Section: localization
@@ -5779,6 +5808,24 @@ Original-Maintainer: Maintainers of Mozilla-related packages <pkg-mozilla-mainta
 Original-Uploaders: Mike Hommey <glandium@debian.org>
 Original-Vcs-Browser: http://git.debian.org/?p=pkg-mozilla/iceweasel.git
 Original-Vcs-Git: git://git.debian.org/git/pkg-mozilla/iceweasel.git
+
+Package: libglapi-mesa
+Priority: optional
+Section: libs
+Installed-Size: 166
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Architecture: i386
+Source: mesa
+Version: 8.0.4-2
+Depends: libc6 (>= 2.3.6-6~)
+Pre-Depends: multiarch-support
+Size: 46692
+Description: free implementation of the GL API -- shared library
+ The Mesa GL API module is responsible for dispatching all the gl*
+ functions. It is intended to be mainly used by both the libgles1-mesa
+ and libgles2-mesa packages.
+Multi-Arch: same
+Homepage: http://mesa3d.sourceforge.net/
 
 Package: libtiff4
 Priority: optional
@@ -6166,17 +6213,19 @@ Homepage: http://www.gnu.org/software/wget/
 Package: libgl1-mesa-glx
 Priority: optional
 Section: libs
-Installed-Size: 448
+Installed-Size: 439
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: mesa
-Version: 7.10.3-4~bpo60+1
+Version: 8.0.4-2
 Replaces: libgl1, libgl1-mesa-dri (<< 6.4.0)
-Provides: libgl1, libgl1-mesa-glx-no-multiarch
-Depends: libc6 (>= 2.3.6-6~), libdrm2 (>= 2.3.1), libgcc1 (>= 1:4.1.1), libstdc++6 (>= 4.1.1), libx11-6, libxdamage1 (>= 1:1.1), libxext6, libxfixes3 (>= 1:4.0.1), libxxf86vm1
+Provides: libgl1
+Depends: libc6 (>= 2.3.6-6~), libdrm2 (>= 2.3.1), libgcc1 (>= 1:4.1.1), libglapi-mesa (= 8.0.4-2), libstdc++6 (>= 4.1.1), libx11-6 (>= 2:1.4.99.1), libx11-xcb1, libxcb-glx0 (>= 1.8), libxcb1, libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxxf86vm1
+Pre-Depends: multiarch-support
 Recommends: libgl1-mesa-dri (>= 7.2)
+Breaks: fglrx-glx (<< 1:11-6-1), libgl1-nvidia-alternatives (<= 275.09.07-1)
 Conflicts: libgl1, libgl1-mesa-dri (<< 6.4.0)
-Size: 149962
+Size: 133638
 Description: free implementation of the OpenGL API -- GLX runtime
  This version of Mesa provides GLX and DRI capabilities: it is capable of
  both direct and indirect rendering.  For direct rendering, it can use DRI
@@ -6187,6 +6236,7 @@ Description: free implementation of the OpenGL API -- GLX runtime
  .
  For a complete description of Mesa, please look at the
  libgl1-mesa-swx11 package.
+Multi-Arch: same
 Homepage: http://mesa3d.sourceforge.net/
 
 Package: x11-utils
@@ -9980,6 +10030,22 @@ Original-Uploaders: Bastian Blank <waldi@debian.org>, Frederik Schüler <fs@debi
 Original-Vcs-Browser: http://svn.debian.org/wsvn/kernel/dists/trunk/firmware-nonfree/
 Original-Vcs-Svn: svn://svn.debian.org/kernel/dists/trunk/firmware-nonfree/
 
+Package: gcc-4.7-base
+Priority: required
+Section: libs
+Installed-Size: 195
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Architecture: i386
+Source: gcc-4.7
+Version: 4.7.1-7
+Breaks: dehydra (<= 0.9.hg20110609-2), gcj-4.6-base (<< 4.6.1-4~), gnat-4.6 (<< 4.6.1-5~)
+Size: 142236
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+Multi-Arch: same
+Homepage: http://gcc.gnu.org/
+
 Package: libavahi-client3
 Priority: optional
 Section: libs
@@ -11366,29 +11432,29 @@ Description: GNU cpio -- a program to manage archives of files
  as well as reading and writing tar files.
 
 Package: libstdc++6
-Priority: required
+Priority: important
 Section: libs
-Installed-Size: 1196
+Installed-Size: 1168
 Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
 Architecture: i386
-Source: gcc-4.4
-Version: 4.4.5-8
-Depends: gcc-4.4-base (= 4.4.5-8), libc6 (>= 2.3.2), libgcc1 (>= 1:4.1.1)
+Source: gcc-4.7
+Version: 4.7.1-7
+Depends: gcc-4.7-base (= 4.7.1-7), libc6 (>= 2.11), libgcc1 (>= 1:4.1.1)
+Pre-Depends: multiarch-support
+Breaks: gcc-4.1, gcc-4.3 (<< 4.3.6-1), gcc-4.4 (<< 4.4.6-4), gcc-4.5 (<< 4.5.3-2)
 Conflicts: scim (<< 1.4.2-1)
 Filename: pool/main/g/gcc-4.4/libstdc++6_4.4.5-8_i386.deb
-Size: 347242
+Size: 346340
 MD5sum: cf7baf7a7269c3bff14cecc676289c32
-Description: The GNU Standard C++ Library v3
+Description: GNU Standard C++ Library v3
  This package contains an additional runtime library for C++ programs
  built with the GNU compiler.
  .
  libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
  was included up to g++-2.95. The first version of libstdc++-v3 appeared
  in g++-3.0.
-SHA1: eedc4731ce5317b5ddc7f91ae8201aeec8e9ca02
-SHA256: 32b0a18a5eba3bca1af52931ac91e647823725d07d721b28a3339d8c70256573
+Multi-Arch: same
 Homepage: http://gcc.gnu.org/
-Tag: implemented-in::c++, role::shared-lib, suite::gnu
 
 Package: libpcsclite1
 Priority: optional
