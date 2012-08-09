@@ -45,11 +45,11 @@ Package: xserver-common
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 1336
+Installed-Size: 1515
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: all
 Source: xorg-server
-Version: 2:1.10.4-1~bpo60+1
+Version: 2:1.12.4-1
 Replaces: xserver-xorg-core (<< 2:1.5.2)
 Depends: x11-common, xkb-data, x11-xkb-utils
 Recommends: xfonts-base, xauth
@@ -618,12 +618,12 @@ Package: xserver-xorg-video-sis
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 660
+Installed-Size: 670
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:0.10.3-3~bpo60+1
+Version: 1:0.10.4-1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.7), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- SiS display driver
  This package provides the driver for all SiS and XGI Volari cards.
  .
@@ -981,6 +981,30 @@ Description: MIT Kerberos runtime libraries - krb5 GSS-API Mechanism
  implementation of GSS-API used by applications and Kerberos clients.
 Homepage: http://web.mit.edu/kerberos/
 
+Package: libxcb-util0
+Status: install ok installed
+Priority: extra
+Section: libs
+Installed-Size: 68
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Architecture: i386
+Source: xcb-util
+Version: 0.3.8-2
+Depends: libc6 (>= 2.1.3), libxcb1
+Pre-Depends: multiarch-support
+Description: utility libraries for X C Binding -- atom, aux and event
+ This package contains the library files needed to run software using
+ libxcb-util.
+ .
+ The xcb-util module provides a number of libraries which sit on top of
+ libxcb, the core X protocol library, and some of the extension
+ libraries. These experimental libraries provide convenience functions
+ and interfaces which make the raw X protocol more usable. Some of the
+ libraries also provide client-side code which is not strictly part of
+ the X protocol but which have traditionally been provided by Xlib.
+Multi-Arch: same
+Homepage: http://xcb.freedesktop.org
+
 Package: firmware-ralink
 Status: install ok installed
 Priority: optional
@@ -1304,12 +1328,12 @@ Package: xserver-xorg-video-apm
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 204
+Installed-Size: 152
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.2.3-2~bpo60+1
+Version: 1:1.2.3-3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- APM display driver
  This package provides the driver for the Alliance Pro Motion family
  of video cards; specifically, the 6420, 6422, AT24, AT25, and AT3D
@@ -1364,12 +1388,13 @@ Package: xserver-xorg-video-voodoo
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 100
+Installed-Size: 95
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.2.4-2~bpo60+1
+Source: xserver-xorg-video-voodoo (1:1.2.4-2)
+Version: 1:1.2.4-2+b3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Voodoo display driver
  This package provides the driver for 3dfx Voodoo1 and Voodoo2 chipsets.
  .
@@ -1463,12 +1488,12 @@ Package: xserver-xorg-video-s3virge
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 148
+Installed-Size: 150
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.10.4-4~bpo60+1
+Version: 1:1.10.4-5
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- S3 ViRGE display driver
  This package provides the driver for the S3 ViRGE and Trio3D family
  of chipsets.  It does not support Trio64 or S3 96x cards; support for
@@ -1915,16 +1940,17 @@ Package: xserver-xorg-core
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 3696
+Installed-Size: 4125
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: xorg-server
-Version: 2:1.10.4-1~bpo60+1
-Provides: xorg-input-abi-12, xorg-video-abi-10, xserver-xorg-core-no-multiarch
-Depends: xserver-common (>= 2:1.10.4-1~bpo60+1), keyboard-configuration, udev (>= 149), libaudit0, libc6 (>= 2.3.6-6~), libdrm2 (>= 2.3.1), libgcrypt11 (>= 1.4.2), libpciaccess0 (>= 0.10.7), libpixman-1-0 (>= 0.15.16), libselinux1 (>= 2.0.82), libudev0 (>= 0.140), libxau6, libxdmcp6, libxfont1 (>= 1:1.4.2)
+Version: 2:1.12.4-1
+Provides: xorg-input-abi-16, xorg-video-abi-12
+Depends: xserver-common (>= 2:1.12.4-1), keyboard-configuration, udev (>= 149), libaudit0 (>= 1.7.13), libc6 (>= 2.8), libdrm2 (>= 2.3.1), libgcrypt11 (>= 1.4.5), libpciaccess0 (>= 0.12.902), libpixman-1-0 (>= 0.21.6), libselinux1 (>= 2.0.82), libudev0 (>= 154), libxau6, libxdmcp6, libxfont1 (>= 1:1.4.2)
 Recommends: libgl1-mesa-dri (>= 7.10.2-4)
 Suggests: xfonts-100dpi | xfonts-75dpi, xfonts-scalable
-Breaks: xserver-xorg-input, xserver-xorg-input-2, xserver-xorg-input-2.1, xserver-xorg-input-4, xserver-xorg-input-7, xserver-xorg-input-joystick (<= 1:1.5.0-3), xserver-xorg-input-synaptics (<= 1.2.2-1), xserver-xorg-input-tslib (<= 0.0.6-3), xserver-xorg-input-vmmouse (<= 1:12.6.5-4), xserver-xorg-input-wacom (<< 0.7.8), xserver-xorg-video, xserver-xorg-video-1.0, xserver-xorg-video-1.9, xserver-xorg-video-2, xserver-xorg-video-4, xserver-xorg-video-5, xserver-xorg-video-6, xserver-xorg-video-cyrix (<= 1:1.1.0-8), xserver-xorg-video-i810 (<< 2:2.4), xserver-xorg-video-imstt (<= 1:1.1.0-7), xserver-xorg-video-nsc (<= 1:2.8.3-4), xserver-xorg-video-sunbw2 (<= 1:1.1.0-5), xserver-xorg-video-v4l (<< 1:0.2.0), xserver-xorg-video-vga (<= 1:4.1.0-8)
+Breaks: libgl1-mesa-dri (<< 7.10.2-4), libgl1-mesa-dri-experimental (<< 7.10.2-4), xserver-xorg-input, xserver-xorg-input-2, xserver-xorg-input-2.1, xserver-xorg-input-4, xserver-xorg-input-7, xserver-xorg-input-joystick (<= 1:1.5.0-3), xserver-xorg-input-synaptics (<= 1.2.2-1), xserver-xorg-input-tslib (<= 0.0.6-3), xserver-xorg-input-vmmouse (<= 1:12.6.5-4), xserver-xorg-input-wacom (<= 0.10.5+20100415-1), xserver-xorg-video, xserver-xorg-video-1.0, xserver-xorg-video-1.9, xserver-xorg-video-2, xserver-xorg-video-4, xserver-xorg-video-5, xserver-xorg-video-6, xserver-xorg-video-cyrix (<= 1:1.1.0-8), xserver-xorg-video-i810 (<< 2:2.4), xserver-xorg-video-imstt (<= 1:1.1.0-7), xserver-xorg-video-nsc (<= 1:2.8.3-4), xserver-xorg-video-sunbw2 (<= 1:1.1.0-5), xserver-xorg-video-v4l (<< 1:0.2.0), xserver-xorg-video-vga (<= 1:4.1.0-8)
+Conflicts: xserver-xorg-input-evtouch
 Description: Xorg X server - core server
  The Xorg X server is an X server for several architectures and operating
  systems, which is derived from the XFree86 4.x series of X servers.
@@ -2042,12 +2068,13 @@ Package: libdrm2
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 500
+Installed-Size: 506
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: libdrm
-Version: 2.4.26-1~bpo60+1
+Version: 2.4.33-3
 Depends: libc6 (>= 2.7)
+Pre-Depends: multiarch-support
 Description: Userspace interface to kernel DRM services -- runtime
  This library implements the userspace interface to the kernel DRM
  services.  DRM stands for "Direct Rendering Manager", which is the
@@ -2056,6 +2083,7 @@ Description: Userspace interface to kernel DRM services -- runtime
  OpenGL drivers.
  .
  This package provides the runtime environment for libdrm.
+Multi-Arch: same
 
 Package: libdrm-nouveau1a
 Status: install ok installed
@@ -2098,12 +2126,12 @@ Package: xserver-xorg-video-openchrome
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 540
+Installed-Size: 544
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:0.2.904+svn920-1~bpo60+1
+Version: 1:0.2.906-2
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), libdrm2 (>= 2.3.1), libx11-6, libxext6, libxv1, libxvmc1, xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), libdrm2 (>= 2.3.1), libx11-6 (>= 2:1.4.99.1), libxext6, libxv1, libxvmc1, xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- VIA display driver
  OpenChrome is a project for the development of free and open-source drivers
  for the VIA UniChrome video chipsets.
@@ -2243,9 +2271,10 @@ Section: x11
 Installed-Size: 156
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:11.0.3-2~bpo60+1
+Source: xserver-xorg-video-vmware (1:12.0.2-1)
+Version: 1:12.0.2-1+b1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), libdrm2 (>= 2.3.1), libx11-6, libxext6, xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), libx11-6 (>= 2:1.4.99.1), libxext6, xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- VMware display driver
  This package provides the driver for VMware client sessions, i.e. if Linux
  is running inside a VMware session.
@@ -2503,23 +2532,25 @@ Package: xserver-xorg-video-radeon
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 1480
+Installed-Size: 1450
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: xserver-xorg-video-ati
-Version: 1:6.14.2-1~bpo60+1
+Version: 1:6.14.4-5
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.7), libdrm-radeon1 (>= 2.4.17), libdrm2 (>= 2.4.17), libpciaccess0 (>= 0.10.2), libpixman-1-0, libudev0 (>= 146), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), libdrm-radeon1 (>= 2.4.31), libdrm2 (>= 2.4.25), libpciaccess0 (>= 0.10.2), libudev0 (>= 146), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Suggests: firmware-linux
 Conffiles:
  /etc/modprobe.d/radeon-kms.conf 3792130931629c4398df31ffa5dd0d9c
 Description: X.Org X server -- AMD/ATI Radeon display driver
- This package provides the 'radeon' driver for the AMD/ATI Radeon, FireGL,
- FireMV, FirePro and FireStream series.
- .
- Note that this is not the same as the ATI-provided, binary-only, 'fglrx'
- driver, which provides additional 3D functionality for some newer Radeon
- cards, but is not supported.
+ This package provides the 'radeon' driver for the AMD/ATI cards. The
+ following chips should be supported: R100, RV100, RS100, RV200, RS200,
+ RS250, R200, RV250, RV280, RS300, RS350, RS400/RS480, R300, R350, R360,
+ RV350, RV360, RV370, RV380, RV410, R420, R423/R430, R480/R481,
+ RV505/RV515/RV516/RV550, R520, RV530/RV560, RV570/R580,
+ RS600/RS690/RS740, R600, RV610/RV630, RV620/RV635, RV670, RS780/RS880,
+ RV710/RV730, RV740/RV770/RV790, CEDAR, REDWOOD, JUNIPER, CYPRESS,
+ HEMLOCK, PALM, SUMO/SUMO2, BARTS, TURKS, CAICOS, CAYMAN, ARUBA.
  .
  More information about X.Org can be found at:
  <URL:http://www.X.org>
@@ -2657,9 +2688,9 @@ Section: x11
 Installed-Size: 236
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:2.3.2-3~bpo60+1
+Version: 1:2.3.4-1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Savage display driver
  This package provides the driver for the S3/VIA Savage/ProSavage/Twister family
  of chipsets.
@@ -2673,12 +2704,13 @@ Package: xserver-xorg-video-fbdev
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 96
+Installed-Size: 87
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:0.4.2-4~bpo60+1
+Source: xserver-xorg-video-fbdev (1:0.4.2-4)
+Version: 1:0.4.2-4+b3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- fbdev display driver
  This package provides the driver for the Linux framebuffer device (aka
  'fbdev').
@@ -2882,12 +2914,13 @@ Package: xserver-xorg-input-evdev
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 176
+Installed-Size: 184
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:2.6.0-2~bpo60+1
+Source: xserver-xorg-input-evdev (1:2.7.0-1)
+Version: 1:2.7.0-1+b1
 Provides: xorg-driver-input
-Depends: libc6 (>= 2.7), xorg-input-abi-12, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), xorg-input-abi-16, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- evdev input driver
  This package provides the driver for input devices using evdev, the Linux
  kernel's event delivery mechanism.  This driver allows for multiple keyboards
@@ -3016,17 +3049,19 @@ Package: libdrm-radeon1
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 492
+Installed-Size: 503
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: libdrm
-Version: 2.4.26-1~bpo60+1
-Depends: libc6 (>= 2.1.3), libdrm2 (>= 2.4.3)
+Version: 2.4.33-3
+Depends: libc6 (>= 2.3.4), libdrm2 (>= 2.4.3)
+Pre-Depends: multiarch-support
 Description: Userspace interface to radeon-specific kernel DRM services -- runtime
  This library implements the userspace interface to the radeon-specific kernel
  DRM services.  DRM stands for "Direct Rendering Manager", which is the
  kernelspace portion of the "Direct Rendering Infrastructure" (DRI). The DRI is
  currently used on Linux to provide hardware-accelerated OpenGL drivers.
+Multi-Arch: same
 
 Package: libmount1
 Status: install ok installed
@@ -3107,13 +3142,13 @@ Package: xserver-xorg
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 428
+Installed-Size: 361
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: xorg
-Version: 1:7.6+8~bpo60+1
+Version: 1:7.7+1
 Provides: xserver
-Depends: xserver-xorg-core (>= 2:1.9.0.901), xserver-xorg-video-all | xorg-driver-video, xserver-xorg-input-all | xorg-driver-input, xserver-xorg-input-evdev, libc6 (>= 2.7), xkb-data (>= 1.4), x11-xkb-utils
+Depends: xserver-xorg-core (>= 2:1.11), xserver-xorg-video-all | xorg-driver-video, xserver-xorg-input-all | xorg-driver-input, xserver-xorg-input-evdev, libc6 (>= 2.7), xkb-data (>= 1.4), x11-xkb-utils
 Recommends: libgl1-mesa-dri
 Description: X.Org X server
  This package depends on the full suite of the server and drivers for the
@@ -3790,13 +3825,13 @@ Package: xserver-xorg-input-synaptics
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 312
+Installed-Size: 329
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1.4.1-1~bpo60+1
+Version: 1.6.2-2
 Replaces: xorg-driver-synaptics
 Provides: xorg-driver-input, xorg-driver-synaptics
-Depends: libc6 (>= 2.2), libx11-6, libxi6 (>= 2:1.2.0), libxtst6, xorg-input-abi-12, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.2), libmtdev1 (>= 1.1.0), libx11-6, libxi6 (>= 2:1.2.0), libxtst6, xorg-input-abi-16, xserver-xorg-core (>= 2:1.12.3.901)
 Suggests: gpointing-device-settings, touchfreeze
 Conflicts: xorg-driver-synaptics
 Description: Synaptics TouchPad driver for X.Org server
@@ -3828,12 +3863,13 @@ Package: xserver-xorg-video-vesa
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 104
+Installed-Size: 97
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:2.3.0-7~bpo60+1
+Source: xserver-xorg-video-vesa (1:2.3.1-1)
+Version: 1:2.3.1-1+b1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- VESA display driver
  This driver for the X.Org X server (see xserver-xorg for a further description)
  uses the standard VESA interface provided on all video cards, but runs
@@ -4169,12 +4205,12 @@ Package: xserver-xorg-video-rendition
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 108
+Installed-Size: 103
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:4.2.4-2~bpo60+1
+Version: 1:4.2.4-3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Rendition display driver
  This package provides the driver for the Rendition Verite family of chipsets,
  commonly found in 3D accelerators such as the Creative 3D Blaster.
@@ -4391,12 +4427,12 @@ Package: xserver-xorg-video-sisusb
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 148
+Installed-Size: 143
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:0.9.4-2~bpo60+1
+Version: 1:0.9.4-3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.7), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- SiS USB display driver
  This package provides the driver for SiS USB-attached video devices.
  .
@@ -4537,12 +4573,12 @@ Package: xserver-xorg-video-tdfx
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 144
+Installed-Size: 140
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.4.3-4~bpo60+1
+Version: 1:1.4.4-1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- tdfx display driver
  This package provides the driver for 3dfx Voodoo video cards and their
  derivatives.
@@ -5117,12 +5153,13 @@ Package: xserver-xorg-video-ark
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 84
+Installed-Size: 78
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:0.7.3-2~bpo60+1
+Source: xserver-xorg-video-ark (1:0.7.4-1)
+Version: 1:0.7.4-1+b1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- ark display driver
  This package provides the driver for the ark family
  of chipsets.
@@ -5185,12 +5222,12 @@ Package: xserver-xorg-video-cirrus
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 144
+Installed-Size: 148
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.3.2-4~bpo60+1
+Version: 1:1.4.0-2
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Cirrus display driver
  This package provides the driver for the Cirrus Logic family of video
  cards.
@@ -5462,12 +5499,12 @@ Package: xserver-xorg-video-r128
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 308
+Installed-Size: 295
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 6.8.1-5~bpo60+1
+Version: 6.8.2-1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.7), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Suggests: firmware-linux
 Description: X.Org X server -- ATI r128 display driver
  This driver for the X.Org X server (see xserver-xorg for a further description)
@@ -5880,12 +5917,12 @@ Package: xserver-xorg-video-neomagic
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 152
+Installed-Size: 143
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.2.5-2~bpo60+1
+Version: 1:1.2.6-1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Neomagic display driver
  This package provides the driver for Neomagic MagicGraph chipsets, which are
  commonly found in laptops.
@@ -6544,19 +6581,19 @@ Package: xserver-xorg-video-nouveau
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 492
+Installed-Size: 472
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:0.0.16+git20110411+8378443-1~bpo60+1
+Version: 1:1.0.1-3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), libdrm-nouveau1a (>= 2.4.23), libudev0 (>= 146), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
-Description: X.Org X server -- Nouveau display driver (experimental)
+Depends: libc6 (>= 2.4), libdrm2 (>= 2.4.17), libudev0 (>= 146), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
+Recommends: libgl1-mesa-dri (>= 7.11.1)
+Description: X.Org X server -- Nouveau display driver
  This driver for the X.Org X server (see xserver-xorg for a further description)
  provides support for NVIDIA Riva, TNT, GeForce, and Quadro cards.
  .
- Although the nouveau project aims to provide full 3D support it is not yet
- complete, and these packages do not include any 3D support.
- Users requiring 3D support should use the non-free "nvidia" driver.
+ This package provides 2D support including EXA acceleration, Xv and
+ RandR.  3D functionality is provided by the libgl1-mesa-dri package.
  .
  This package is built from the FreeDesktop.org xf86-video-nouveau driver.
 Homepage: http://nouveau.freedesktop.org/wiki/
@@ -6597,13 +6634,13 @@ Package: libx11-6
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 1356
+Installed-Size: 1492
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: libx11
-Version: 2:1.3.3-4
+Version: 2:1.5.0-1
 Depends: libc6 (>= 2.3.2), libxcb1 (>= 1.2), libx11-data
-Conflicts: xlibs-data (<< 1:7.0.0)
+Pre-Depends: multiarch-support
 Description: X11 client-side library
  This package provides a client interface to the X Window System, otherwise
  known as 'Xlib'.  It provides a complete API for the basic functions of the
@@ -6611,11 +6648,10 @@ Description: X11 client-side library
  .
  More information about X.Org can be found at:
  <URL:http://www.X.org>
- <URL:http://xorg.freedesktop.org>
- <URL:http://lists.freedesktop.org/mailman/listinfo/xorg>
  .
  This module can be found at
  git://anongit.freedesktop.org/git/xorg/lib/libX11
+Multi-Arch: same
 
 Package: libjasper1
 Status: install ok installed
@@ -7027,9 +7063,9 @@ Section: x11
 Installed-Size: 268
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.4.13.dfsg-3~bpo60+1
+Version: 1:1.5.0-2
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.7), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Suggests: firmware-linux
 Description: X.Org X server -- MGA display driver
  This package provides the driver for the Matrox MGA family of chipsets,
@@ -7110,12 +7146,13 @@ Package: xserver-xorg-video-i128
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 140
+Installed-Size: 130
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.3.4-2~bpo60+1
+Source: xserver-xorg-video-i128 (1:1.3.5-1)
+Version: 1:1.3.5-1+b1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- i128 display driver
  This package provides the driver for Number 9 Imagine (I128) video cards.
  .
@@ -7425,6 +7462,24 @@ Description: ejects CDs and operates CD-Changers under Linux
  devices like digital cameras or portable music players.
 Homepage: http://www.pobox.com/~tranter/eject.html
 
+Package: libmtdev1
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 77
+Maintainer: Nobuhiro Iwamatsu <iwamatsu@debian.org>
+Architecture: i386
+Source: mtdev
+Version: 1.1.2-1
+Depends: libc6 (>= 2.1.3)
+Pre-Depends: multiarch-support
+Description: Multitouch Protocol Translation Library - shared library
+ libmtdev is a library for translating evdev multitouch events using the legacy
+ protocol to the new multitouch slots protocol. This is necessary for kernel
+ drivers that have not been updated to use the newer protocol.
+Multi-Arch: same
+Homepage: http://bitmath.org/code/mtdev/
+
 Package: alsa-utils
 Status: install ok installed
 Priority: optional
@@ -7480,12 +7535,13 @@ Package: xserver-xorg-video-s3
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 140
+Installed-Size: 130
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:0.6.3-4~bpo60+1
+Source: xserver-xorg-video-s3 (1:0.6.3-4)
+Version: 1:0.6.3-4+b3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- legacy S3 display driver
  This package provides the driver for certain legacy S3 video card chipsets,
  including the Trio64 and 96x cards.  It does not provide support for
@@ -7588,12 +7644,12 @@ Package: xserver-xorg-video-trident
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 228
+Installed-Size: 219
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.3.4-2~bpo60+1
+Version: 1:1.3.5-1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.7), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Trident display driver
  This package provides the driver for Trident Blade/Image/ProVidia/TGUI/9xxx
  video cards.
@@ -7673,12 +7729,12 @@ Package: xserver-xorg-video-chips
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 224
+Installed-Size: 221
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.2.4-1~bpo60+1
+Version: 1:1.2.4-2
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Chips display driver
  This package provides the driver for the Chips & Technologies family
  of video cards.
@@ -7692,14 +7748,14 @@ Package: xserver-xorg-video-intel
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 1260
+Installed-Size: 2076
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 2:2.15.0-3~bpo60+2
+Version: 2:2.19.0-6
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.3.6-6~), libdrm-intel1 (>= 2.4.23-3~), libdrm2 (>= 2.4.17), libpciaccess0 (>= 0.8.0+git20071002), libudev0 (>= 146), libx11-6, libx11-xcb1, libxcb-aux0 (>= 0.3.6), libxcb-dri2-0, libxcb1, libxext6, libxfixes3 (>= 1:4.0.1), libxv1, libxvmc1, xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.8), libdrm-intel1 (>= 2.4.29), libdrm2 (>= 2.4.30), libpciaccess0 (>= 0.8.0+git20071002), libudev0 (>= 146), libx11-6, libx11-xcb1, libxcb-dri2-0, libxcb-util0 (>= 0.3.8), libxcb1, libxext6, libxfixes3, libxv1, libxvmc1, xorg-video-abi-12, xserver-xorg-core (>= 2:1.12.3.901)
 Conffiles:
- /etc/modprobe.d/i915-kms.conf 2ea78dbb794e6f512da751d5a61c44e3
+ /etc/modprobe.d/i915-kms.conf 2ea78dbb794e6f512da751d5a61c44e3 obsolete
 Description: X.Org X server -- Intel i8xx, i9xx display driver
  This package provides the driver for the Intel i8xx and i9xx family
  of chipsets, including i810, i815, i830, i845, i855, i865, i915, i945
@@ -7741,12 +7797,12 @@ Package: xserver-xorg-video-mach64
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 380
+Installed-Size: 368
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 6.9.0-1~bpo60+1
+Version: 6.9.1-2
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- ATI Mach64 display driver
  This driver for the X.Org X server (see xserver-xorg for a further description)
  provides support for the ATI Mach64 series.
@@ -7801,17 +7857,19 @@ Package: libdrm-intel1
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 500
+Installed-Size: 582
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: libdrm
-Version: 2.4.26-1~bpo60+1
-Depends: libc6 (>= 2.2), libdrm2 (>= 2.4.3), libpciaccess0
+Version: 2.4.33-3
+Depends: libc6 (>= 2.4), libdrm2 (>= 2.4.3), libpciaccess0
+Pre-Depends: multiarch-support
 Description: Userspace interface to intel-specific kernel DRM services -- runtime
  This library implements the userspace interface to the intel-specific kernel
  DRM services.  DRM stands for "Direct Rendering Manager", which is the
  kernelspace portion of the "Direct Rendering Infrastructure" (DRI). The DRI is
  currently used on Linux to provide hardware-accelerated OpenGL drivers.
+Multi-Arch: same
 
 Package: wireless-tools
 Status: install ok installed
@@ -7880,16 +7938,18 @@ Package: libpciaccess0
 Status: install ok installed
 Priority: optional
 Section: libs
-Installed-Size: 104
+Installed-Size: 102
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
 Source: libpciaccess
-Version: 0.12.0-1
-Depends: libc6 (>= 2.3), zlib1g (>= 1:1.2.3.3.dfsg)
+Version: 0.13.1-2
+Depends: libc6 (>= 2.7), zlib1g (>= 1:1.2.3.3)
+Pre-Depends: multiarch-support
 Suggests: pciutils
 Description: Generic PCI access library for X
  Provides functionality for X to access the PCI bus and devices
  in a platform-independant way.
+Multi-Arch: same
 
 Package: firmware-iwlwifi
 Status: install ok installed
@@ -7952,21 +8012,22 @@ Description: Avahi client library
 Homepage: http://avahi.org/
 
 Package: libc-bin
+Essential: yes
 Status: install ok installed
 Priority: required
 Section: libs
-Installed-Size: 3148
-Maintainer: Progress Developers <progress-devel@lists.progress-linux.org>
-Bugs: mailto:progress-bugs@lists.progress-linux.org
+Installed-Size: 3078
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
 Architecture: i386
 Source: eglibc
-Version: 2.11.3-3artax2
+Version: 2.13-35
 Replaces: libc0.1, libc0.3, libc6, libc6.1
 Breaks: libc0.1 (<< 2.10), libc0.3 (<< 2.10), libc6 (<< 2.10), libc6.1 (<< 2.10)
 Conffiles:
+ /etc/bindresvport.blacklist d2d1b996add35b65f64a22e9c8413632
  /etc/gai.conf bef7187bc7be3830f50ac50727897840
- /etc/bindresvport.blacklist 154db0e55fa99051ff1bd99e5b2c0584
  /etc/ld.so.conf.d/libc.conf d4d833fd095fb7b90e1bb4a547f16de6
+ /etc/default/nss d6d5d6f621fb3ead2548076ce81e309c
 Description: Embedded GNU C Library: Binaries
  This package contains utility programs related to the GNU C Library.
  .
@@ -7978,11 +8039,8 @@ Description: Embedded GNU C Library: Binaries
   * locale, localedef: show/generate locale definitions
   * rpcinfo: report RPC information
   * tzselect, zdump, zic: select/dump/compile time zones
+Multi-Arch: foreign
 Homepage: http://www.eglibc.org
-Original-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Original-Uploaders: Clint Adams <clint@gnu.org>, Aurelien Jarno <aurel32@debian.org>, Pierre Habouzit <madcoder@debian.org>
-Original-Vcs-Browser: http://svn.debian.org/wsvn/pkg-glibc/glibc-package/
-Original-Vcs-Svn: svn://svn.debian.org/pkg-glibc/glibc-package/
 
 Package: alsa-base
 Status: install ok installed
@@ -8169,6 +8227,23 @@ Description: X.Org X server -- input driver metapackage
  This package depends on the full suite of input drivers for the X.Org X server
  (Xorg).  It does not provide any drivers itself, and may be removed if you wish
  to only have certain drivers installed.
+
+Package: multiarch-support
+Status: install ok installed
+Priority: required
+Section: libs
+Installed-Size: 178
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+Architecture: i386
+Source: eglibc
+Version: 2.13-35
+Depends: libc6 (>= 2.13-5)
+Description: Transitional package to ensure multiarch compatibility
+ This is a transitional package used to ensure multiarch support is present
+ in ld.so before unpacking libraries to the multiarch directories.  It can
+ be removed once nothing on the system depends on it.
+Multi-Arch: foreign
+Homepage: http://www.eglibc.org
 
 Package: fontconfig-config
 Status: install ok installed
@@ -8629,29 +8704,26 @@ Package: libc6
 Status: install ok installed
 Priority: required
 Section: libs
-Installed-Size: 9212
-Maintainer: Progress Developers <progress-devel@lists.progress-linux.org>
-Bugs: mailto:progress-bugs@lists.progress-linux.org
+Installed-Size: 8525
+Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
 Architecture: i386
 Source: eglibc
-Version: 2.11.3-3artax2
-Provides: glibc-2.11-1
-Depends: libc-bin (= 2.11.3-3artax2), libgcc1
+Version: 2.13-35
+Replaces: libc6-i386
+Provides: glibc-2.13-1
+Depends: libc-bin (= 2.13-35), libgcc1
 Recommends: libc6-i686
 Suggests: glibc-doc, debconf | debconf-2.0, locales
-Breaks: locales (<< 2.11), locales-all (<< 2.11), nscd (<< 2.11)
+Breaks: locales (<< 2.13), locales-all (<< 2.13), nscd (<< 2.13)
 Conflicts: prelink (<= 0.0.20090311-1), tzdata (<< 2007k-1), tzdata-etch
 Conffiles:
- /etc/ld.so.conf.d/i486-linux-gnu.conf 36f09aeeab18f6af453d0a1db0a0942c
+ /etc/ld.so.conf.d/i486-linux-gnu.conf de72af11e0f4e741c2cca3e0e87b7af4
 Description: Embedded GNU C Library: Shared libraries
  Contains the standard libraries that are used by nearly all programs on
  the system. This package includes shared versions of the standard C library
  and the standard math library, as well as many others.
+Multi-Arch: same
 Homepage: http://www.eglibc.org
-Original-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
-Original-Uploaders: Clint Adams <clint@gnu.org>, Aurelien Jarno <aurel32@debian.org>, Pierre Habouzit <madcoder@debian.org>
-Original-Vcs-Browser: http://svn.debian.org/wsvn/pkg-glibc/glibc-package/
-Original-Vcs-Svn: svn://svn.debian.org/pkg-glibc/glibc-package/
 
 Package: libsm6
 Status: install ok installed
@@ -9262,12 +9334,13 @@ Package: xserver-xorg-video-i740
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 120
+Installed-Size: 115
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.3.2-4~bpo60+1
+Source: xserver-xorg-video-i740 (1:1.3.2-4)
+Version: 1:1.3.2-4+b3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- i740 display driver
  This package provides the driver for the Intel i740 family of video chipsets.
  .
@@ -9448,12 +9521,12 @@ Package: xserver-xorg-video-ati
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 336
+Installed-Size: 329
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:6.14.2-1~bpo60+1
+Version: 1:6.14.4-5
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), libpciaccess0, xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903), xserver-xorg-video-r128, xserver-xorg-video-mach64, xserver-xorg-video-radeon
+Depends: libc6 (>= 2.1.3), libpciaccess0, xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901), xserver-xorg-video-r128, xserver-xorg-video-mach64, xserver-xorg-video-radeon
 Description: X.Org X server -- AMD/ATI display driver wrapper
  This package provides the 'ati' driver for the AMD/ATI Mach64, Rage128,
  Radeon, FireGL, FireMV, FirePro and FireStream series. This driver is
@@ -9474,12 +9547,12 @@ Package: xserver-xorg-video-siliconmotion
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 216
+Installed-Size: 215
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.7.5-1~bpo60+1
+Version: 1:1.7.6-1
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.7), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.7), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- SiliconMotion display driver
  This package provides the driver for the SiliconMotion Lynx and Cougar family
  of chipsets, commonly found in laptops.
@@ -9553,12 +9626,12 @@ Package: xserver-xorg-video-tseng
 Status: install ok installed
 Priority: optional
 Section: x11
-Installed-Size: 124
+Installed-Size: 121
 Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
 Architecture: i386
-Version: 1:1.2.4-2~bpo60+1
+Version: 1:1.2.4-3
 Provides: xorg-driver-video
-Depends: libc6 (>= 2.1.3), xorg-video-abi-10, xserver-xorg-core (>= 2:1.9.99.903)
+Depends: libc6 (>= 2.1.3), xorg-video-abi-12, xserver-xorg-core (>= 2:1.11.99.901)
 Description: X.Org X server -- Tseng display driver
  This package provides the driver for Tseng Labs cards.
  .

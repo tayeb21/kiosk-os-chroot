@@ -1128,6 +1128,10 @@ Template: libpaper/defaultpaper
 Value: a4
 Owners: libpaper1
 
+Name: libraries/restart-without-asking
+Template: libraries/restart-without-asking
+Owners: libc6
+
 Name: libslp1/multicast
 Template: libslp1/multicast
 Owners: libslp1
