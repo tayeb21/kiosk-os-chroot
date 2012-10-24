@@ -1696,24 +1696,6 @@ Description: X.Org X Window System
  It should be noted that a package providing x-window-manager should also
  be installed to ensure a comfortable X experience.
 
-Package: linux-image-686
-Status: install ok installed
-Priority: optional
-Section: oldlibs
-Installed-Size: 52
-Maintainer: Progress Developers <progress-devel@lists.progress-linux.org>
-Bugs: mailto:progress-bugs@lists.progress-linux.org
-Architecture: i386
-Source: linux-latest (45~artax1)
-Version: 3.2+45~artax1
-Depends: linux-image-686-pae, debconf (>= 0.5) | debconf-2.0
-Description: Linux for modern PCs (dummy package)
- This is a dummy transitional package.  It can be safely removed.
-Original-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
-Original-Uploaders: Bastian Blank <waldi@debian.org>, Frederik Schüler <fs@debian.org>, Ben Hutchings <ben@decadent.org.uk>
-Original-Vcs-Browser: http://anonscm.debian.org/viewvc/kernel/dists/sid/linux-latest/
-Original-Vcs-Svn: svn://svn.debian.org/svn/kernel/dists/sid/linux-latest/
-
 Package: ncurses-bin
 Essential: yes
 Status: install ok installed
@@ -1857,7 +1839,7 @@ Description: Linux PCI Utilities
 Homepage: http://atrey.karlin.mff.cuni.cz/~mj/pciutils.shtml
 
 Package: linux-image-3.2.0-3artax1-486
-Status: install ok installed
+Status: deinstall ok config-files
 Priority: optional
 Section: kernel
 Installed-Size: 85464
@@ -1866,6 +1848,7 @@ Bugs: mailto:progress-bugs@lists.progress-linux.org
 Architecture: i386
 Source: linux
 Version: 3.2.23-1~artax1
+Config-Version: 3.2.23-1~artax1
 Provides: linux-image, linux-modules-3.2.0-3artax1-486
 Depends: kmod | module-init-tools, linux-base (>= 3~), initramfs-tools (>= 0.99~) | linux-initramfs-tool
 Pre-Depends: debconf | debconf-2.0
@@ -3323,34 +3306,6 @@ Description: X.Org X server -- output driver metapackage
  This package depends on the full suite of output drivers for the X.Org X server
  (Xorg).  It does not provide any drivers itself, and may be removed if you wish
  to only have certain drivers installed.
-
-Package: linux-image-686-pae
-Status: install ok installed
-Priority: optional
-Section: kernel
-Installed-Size: 48
-Maintainer: Progress Developers <progress-devel@lists.progress-linux.org>
-Bugs: mailto:progress-bugs@lists.progress-linux.org
-Architecture: i386
-Source: linux-latest (45~artax1)
-Version: 3.2+45~artax1
-Provides: linux-latest-modules-3.2.0-3artax1-686-pae
-Depends: linux-image-3.2.0-3artax1-686-pae
-Description: Linux for modern PCs (meta-package)
- This package depends on the latest Linux kernel and modules for use on PCs
- with one or more processors supporting PAE.
- .
- This kernel requires PAE (Physical Address Extension). This feature is
- supported by the Intel Pentium Pro/II/III/4/4M/D, Xeon, Core and Atom; AMD
- Geode NX, Athlon (K7), Duron, Opteron, Sempron, Turion or Phenom;
- Transmeta Efficeon; VIA C7; and some other processors.
- .
- This kernel also runs on a Xen hypervisor.  It supports both privileged
- (dom0) and unprivileged (domU) operation.
-Original-Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
-Original-Uploaders: Bastian Blank <waldi@debian.org>, Frederik Schüler <fs@debian.org>, Ben Hutchings <ben@decadent.org.uk>
-Original-Vcs-Browser: http://anonscm.debian.org/viewvc/kernel/dists/sid/linux-latest/
-Original-Vcs-Svn: svn://svn.debian.org/svn/kernel/dists/sid/linux-latest/
 
 Package: browser-plugin-adobe-flash
 Status: install ok installed
@@ -8507,6 +8462,34 @@ Original-Uploaders: Mike Hommey <glandium@debian.org>
 Original-Vcs-Browser: http://git.debian.org/?p=pkg-mozilla/nspr.git
 Original-Vcs-Git: git://git.debian.org/git/pkg-mozilla/nspr.git
 
+Package: linux-image-3.6.2
+Status: install ok installed
+Priority: optional
+Section: kernel
+Installed-Size: 85801
+Maintainer: Unknown Kernel Package Maintainer <unknown@unconfigured.in.etc.kernel-pkg.conf>
+Architecture: i386
+Source: linux-source-3.6.2
+Version: 20121016
+Provides: linux-image, linux-image-3.6
+Depends: coreutils (>= 5.96)
+Pre-Depends: debconf (>= 0.2.17) | debconf-2.0
+Suggests: fdutils, linux-doc-3.6.2 | linux-source-3.6.2, ksymoops, linux-image-3.6.2-dbg
+Description: Linux kernel binary image for version 3.6.2
+ This package contains the Linux kernel image for version
+ 3.6.2.
+ .
+ It also contains the corresponding System.map file, and the modules
+ built by the packager.  It also contains scripts that try to ensure
+ that the system is not left in a unbootable state after an update.
+ .
+ Kernel image packages are generally produced using kernel-package,
+ and it is suggested that you install that package if you wish to
+ create a custom kernel from the sources. Please look at kernel-img.conf(5),
+ and /usr/share/doc/kernel-package/README.gz  from the package kernel-package
+ for details on how to tailor the  installation of this or any other kernel
+ image package
+
 Package: libice6
 Status: install ok installed
 Priority: optional
@@ -8815,7 +8798,7 @@ Description: X11 Session Management library
  git://anongit.freedesktop.org/git/xorg/lib/libSM
 
 Package: linux-image-3.2.0-3artax1-686-pae
-Status: install ok installed
+Status: deinstall ok config-files
 Priority: optional
 Section: kernel
 Installed-Size: 86524
@@ -8824,6 +8807,7 @@ Bugs: mailto:progress-bugs@lists.progress-linux.org
 Architecture: i386
 Source: linux
 Version: 3.2.23-1~artax1
+Config-Version: 3.2.23-1~artax1
 Provides: linux-image, linux-modules-3.2.0-3artax1-686-pae
 Depends: kmod | module-init-tools, linux-base (>= 3~), initramfs-tools (>= 0.99~) | linux-initramfs-tool
 Pre-Depends: debconf | debconf-2.0

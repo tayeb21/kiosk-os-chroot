@@ -1208,6 +1208,46 @@ Name: linux-image-3.2.0-3artax1-686-pae/prerm/removing-running-kernel-3.2.0-3art
 Template: linux-image-3.2.0-3artax1-686-pae/prerm/removing-running-kernel-3.2.0-3artax1-686-pae
 Owners: linux-image-3.2.0-3artax1-686-pae
 
+Name: linux-image-3.6.2/postinst/depmod-error-3.6.2
+Template: linux-image-3.6.2/postinst/depmod-error-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/postinst/depmod-error-initrd-3.6.2
+Template: linux-image-3.6.2/postinst/depmod-error-initrd-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/postinst/kimage-is-a-directory
+Template: linux-image-3.6.2/postinst/kimage-is-a-directory
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/postinst/old-dir-initrd-link-3.6.2
+Template: linux-image-3.6.2/postinst/old-dir-initrd-link-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/postinst/old-system-map-link-3.6.2
+Template: linux-image-3.6.2/postinst/old-system-map-link-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/preinst/abort-overwrite-3.6.2
+Template: linux-image-3.6.2/preinst/abort-overwrite-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/preinst/already-running-this-3.6.2
+Template: linux-image-3.6.2/preinst/already-running-this-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/preinst/failed-to-move-modules-3.6.2
+Template: linux-image-3.6.2/preinst/failed-to-move-modules-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/preinst/overwriting-modules-3.6.2
+Template: linux-image-3.6.2/preinst/overwriting-modules-3.6.2
+Owners: linux-image-3.6.2
+
+Name: linux-image-3.6.2/prerm/removing-running-kernel-3.6.2
+Template: linux-image-3.6.2/prerm/removing-running-kernel-3.6.2
+Owners: linux-image-3.6.2
+
 Name: linux-image-686/no-pae
 Template: linux-image-686/no-pae
 Owners: linux-image-686
